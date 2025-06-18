@@ -1,0 +1,152 @@
+html{
+    font-family: jost;
+	background-color: #FFFFE4;
+}
+header{
+    margin-top: var(--top-margin);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.house{
+    margin-left: 30px;
+}
+.logo{
+    margin-left: 750px;
+}
+.line{
+    margin-top: var(--top-margin);
+    border: var(--line-color);
+}
+table.iksweb{
+	width: 100%;
+	border-collapse:collapse;
+	border-spacing:0;
+	height: auto;
+}
+table.iksweb,table.iksweb td, table.iksweb th {
+	border: 1px solid #595959;
+}
+table.iksweb td,table.iksweb th {
+	padding: 3px;
+	width: 30px;
+	height: 35px;
+}
+table.iksweb th {
+	background: #347c99; 
+	color: #fff; 
+	font-weight: normal;
+}
+ /* :root {
+  --top-margin: 30px;
+  --line-color: 1px solid #515151;
+  --table-border: 1px solid #595959;
+  --header-bg: #347c99;
+  --header-text: #fff;
+  --cell-padding: 12px;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+  background-color: #FFFFE4;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+/* header {
+  margin-top: var(--top-margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
+
+.house {
+  margin-left: 0;
+  order: 1;
+}
+
+.logo {
+  order: 2;
+  margin: 0 auto;
+}
+
+.line {
+  margin: var(--top-margin) auto 0;
+  border: var(--line-color);
+  width: 90%;
+  max-width: 1200px;
+  order: 3;
+  flex: 0 0 100%;
+}
+table.iksweb {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  overflow-x: auto;
+  display: block;
+}
+
+table.iksweb td, 
+table.iksweb th {
+  padding: var(--cell-padding);
+  border: var(--table-border);
+  text-align: center;
+  min-width: 30px;
+}
+
+table.iksweb th {
+  background: var(--header-bg); 
+  color: var(--header-text); 
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+}
+@media (max-width: 1200px) {
+  .logo {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --cell-padding: 8px;
+    --top-margin: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .house {
+    align-self: flex-start;
+  }
+
+  .logo {
+    order: -1;
+    margin: 0;
+  }
+
+  table.iksweb {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --cell-padding: 6px;
+  }
+
+  table.iksweb {
+    font-size: 12px;
+  }
+
+  table.iksweb td, 
+  table.iksweb th {
+    min-width: 20px;
+  }
+} */

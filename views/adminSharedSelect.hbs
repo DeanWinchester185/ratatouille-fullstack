@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/form-recipe-style.css">
+    <title>Создание рецепта</title>
+</head>
+<body>
+    <header>
+        <a href="/admin"><img class="house" src="/images/house.png" alt="house"></a>
+        <a href="/"><img class="logo" src="/images/logo.png" alt="logo"></a>
+    </header>
+    <hr class="line">
+    <div class="block">
+        <p class="name">{{recipe.name}}</p>
+        <div class="category">
+                <p>Категория:</p>
+                <p class="name-category">{{category.name}}</p>
+            </div>
+        <p class="description">{{recipe.description}}</p>
+        <img class="photo" src="/images/recipes/{{recipe.id}}.png">
+    </div>
+    <p class="headler">Ингридиенты</p>
+    <hr class="line">
+    <div class="menu">
+        {{#each ingredient}}
+        <div class="ingredients">
+            {{this.name}}
+            <div class="quantity">
+                {{this.amount}}{{this.unit}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <p class="headler">Шаги</p>
+    <hr class="line">
+    <div>
+        <div class="block">
+            {{#each cookingsteps}}
+            <div class="steps">
+                <img class="photo" src="/images/recipes/{{../this.recipe.id}}_{{this.step_number}}.png">
+                <p class="num-step">Шаг {{this.step_number}}</p>
+                <div>
+                    <p class="description-step">{{this.step_description}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <p class="headler">Пищевая ценность</p>
+    <hr class="line">
+    <div class="caloriqnost">
+        {{#each nutrient}}
+        <div class="one">
+            <p>Калории</p>
+            <div class="two">
+                <p>{{this.calories}}</p>
+                <p>кКал</p>
+            </div>
+        </div>
+        <div class="one">
+            <p>Калории</p>
+            <div class="two">
+                <p>{{this.proteins}}</p>
+                <p>кКал</p>
+            </div>
+        </div>
+        <div class="one">
+            <p>Калории</p>
+            <div class="two">
+                <p>{{this.fats}}</p>
+                <p>кКал</p>
+            </div>
+        </div>
+        <div class="one">
+            <p>Калории</p>
+            <div class="two">
+                <p>{{this.carbohydrates}}</p>
+                <p>кКал</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="buttons">
+        <form action="/admin/shared/apply/{{recipe.id}}" method="post">
+            <button class="no" type="submit">Принять</button>
+        </form>
+        <form action="/admin/shared/reject/{{recipe.id}}" method="post">
+            <button class="yes" type="submit">Отклонить</button>
+        </form>
+    </div>
+</body>
+</html>

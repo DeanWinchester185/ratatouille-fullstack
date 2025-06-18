@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/restyle.css">
+    <title>Рецепт</title>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/images/logo.png" alt="logo"></a>
+        <form action="/recipes/search" method="get" class="forma">
+            <div class="find">
+                <input class="search" type="text" placeholder="Поиск">
+                <button class="search-btn"><img src="/images/lupa.png" alt="search"></button>
+            </div>
+        </form>
+        
+        <div class="buttons">
+            <div class="btns">
+                <a href="/favorite"><img src="/images/heart.png"></a>
+                {{#if user}}
+                <a href="/profile"><img src="/images/user.svg"></a>
+            </div>
+            {{else}}
+            <div>
+                <a href="/login"><button class="logbutton">Войти</button></a>
+            </div>
+            {{/if}}
+        </div>
+    </header>
+    <hr class="line">
+    <div class="block1">
+        <img class="img" src="/images/recipes/{{recipe.id}}.png">
+        <div>
+            <h1 class="headler">{{recipe.name}}</h1>
+            <form class="fav" action="/favorite/{{recipe.id}}" method="post">
+            <div class="headler2">
+                <input type="hidden" name="returnUrl" value="{{returnUrl}}">
+                {{#if isFavorite}}
+                    <button class="favbtn" type="submit"><img class="fav" src="/images/heart-fill.svg"></button>
+                {{else}}
+                    <button class="favbtn" type="submit"><img class="fav" src="/images/heart.svg"></button>
+                {{/if}}
+            <div class="over_grabe">
+                <p>{{recipe.rating}}</p>
+                <img src="/images/small-star.png" alt="">
+            </div>
+            </div>
+            <p class="text">{{recipe.description}}</p>
+            </form>
+        </div>
+    </div>
+    {{#if recipe}}
+    <div class="caloriqnost">
+    {{#each recipe.Nutrients}}
+    <div class="one">
+        <p class="headtext">Калории</p>
+        <div class="two">
+            <p>{{this.calories}} <br>
+                кКал</p>
+        </div>
+    </div>
+    <div class="one">
+        <p class="headtext">Белки</p>
+        <div class="two">
+            <p>{{this.proteins}} <br>
+            г</p>
+        </div>
+    </div>
+    <div class="one">
+        <p class="headtext">Жиры</p>
+        <div class="two">
+            <p>{{this.fats}} <br>
+                г</p>
+        </div>
+    </div>
+    <div class="one">
+        <p class="headtext">Углеводы</p>
+        <div class="two">
+            <p>{{this.carbohydrates}} <br>
+                г</p>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<h1>Ингредиенты</h1>
+<div class="ingridients">
+    <div class="ingridient">
+        {{#each recipe.Ingredients}}
+        <div class="ingridient1">
+            {{this.name}} - {{this.amount}} {{this.unit}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+<h1>Шаги приготовления</h1>
+<div>
+    {{#each recipe.CookingSteps}}
+        <div class="step">
+            <img class="photo" src="/images/recipes/{{../recipe.id}}_{{this.step_number}}.png">
+            Шаг {{this.step_number}}: {{this.step_description}}
+        </div>
+    {{/each}}
+</div>
+{{else}}
+<div class="step">
+<p>Рецепт не найден</p>
+</div>
+{{/if}}
+<hr class="line">
+<h1>Отзывы</h1>
+<div class="block-reviews">
+    {{#each reviews}}
+    <div class="comment">
+        <div class="comment-content">
+            <img class="ava" src="/images/avatars/{{this.User.id}}.png" alt="avatar {{this.User.id}}" onerror="this.src='/images/profile-icon.png'; this.onerror=null;">
+            <div>
+                <p class="username">{{this.User.login}}</p>
+                <p class="user_comment">{{this.text}}</p>
+            </div>
+        </div>
+        <div class="grade">
+            <p>{{this.rate}}</p>
+            <img src="/images/star.png" alt="star">
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{#if isAuth}}
+<hr class="line">
+<h1>Понравилось блюдо? Оцените и оставьте отзыв</h1>
+<div class="block-reviews">
+    <div class="comment">
+        <form id="form-review" action="/reviews/{{recipe.id}}" method="post" class="form-review">
+        <input id="text" class="comment-content" type="text" name="text" placeholder="Оставьте свой комментарий">
+        <div class="stars">
+            <input id="rate" class="number" type="number" min="0.0" max="5.0" step="0.1" oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1);" name="rate" placeholder="_">
+            <img src="/images/star.png" alt="star">
+        </div>
+        </form>
+    </div>
+</div>
+{{else}}
+{{/if}}
+    <hr class="line">
+    <footer>
+        <div class="up">
+            <img src="/images/logo.png" alt="logo">
+            <img src="/images/Citata.png" alt="citata">
+            <div class="feedback">
+                <p class="mail">Поделиться с нами рецептом:
+                    ratatouille@gmail.com</p>
+                <div class="messengers">
+                    <img src="/images/tg.png" alt="tg">
+                    <img src="/images/ws.png" alt="whatsapp">
+                    <img src="/images/vk.png" alt="vk">
+                </div>
+            </div>
+        </div>
+        <p class="copyright">©2024, Ratatouille.ru Все права защищены.</p>
+    </footer>
+    <script src="/js/sendReview.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/form-recipe-style.css">
+    <title>Создание рецепта</title>
+</head>
+<body>
+    <header>
+        <a href="/admin"><img class="house" src="/images/house.png" alt="house"></a>
+        <a href="/"><img class="logo" src="/images/logo.png" alt="logo"></a>
+    </header>
+    <hr class="line">
+    <form action="/shared" method="post" enctype="multipart/form-data">
+        <div class="block">
+            <input class="name" type="text" name="name" placeholder="Название рецепта" required>
+            <div class="category">
+                <p>Категория:</p>
+                <select name="category_id">
+                    {{#each categories}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <input class="photo" type="file" name="image" accept="image/*" required>
+            <textarea class="description" type="text" name="description" placeholder="Описание рецепта"
+                required></textarea>
+        </div>
+        <p class="headler">Ингредиенты</p>
+        <hr class="line">
+        <div class="block">
+            <div id="ingredients-container">
+                <div class="ingredient-group">
+                    <input class="name_recipe" type="text" name="ingredient_name[]" placeholder="Ингредиент" required>
+                    <input class="quantity_recipe" type="number" step="0.1" name="ingredient_amount[]"
+                        placeholder="Количество" required>
+                    <select name="ingredient_unit[]" placeholder="Единица измерения" required>
+                        <option value="г">г</option>
+                        <option value="мл">мл</option>
+                        <option value="шт">шт</option>
+                    </select>
+                </div>
+            </div>
+            <button class="add" type="button" onclick="addIngredient()">+</button>
+        </div>
+        <p class="headler">Шаги</p>
+        <hr class="line">
+        <div class="block">
+            <div id="steps-container">
+                <div class="step-group">
+                    <div class="steps">
+                        <input class="photo" type="file" name="step_image[]" accept="image/*" required>
+                        <input class="num-step" type="number" min="1" minlength="1" name="step_number[]" placeholder="Номер шага" required>
+                        <input class="description-step" type="text" name="step_description[]"
+                            placeholder="Описание шага" required>
+                    </div>
+
+                </div>
+            </div>
+            <button class="add" type="button" onclick="addStep()">+</button>
+        </div>
+        <p class="headler">Пищевая ценность</p>
+        <hr class="line">
+        <div class="caloriqnost">
+            <div class="one">
+                <p>Калории</p>
+                <div class="two">
+                    <input class="cal" type="number" step="0.1" name="calories" placeholder="____" required>
+                    <p>кКал</p>
+                </div>
+            </div>
+            <div class="one">
+                <p>Белки</p>
+                <div class="two">
+                    <input class="cal" type="number" step="0.1" name="proteins" placeholder="____" required>
+                    <p>грамм</p>
+                </div>
+            </div>
+            <div class="one">
+                <p>Жиры</p>
+                <div class="two">
+                    <input class="cal" type="number" step="0.1" name="fats" placeholder="____" required>
+                    <p>грамм</p>
+                </div>
+            </div>
+            <div class="one">
+                <p>Углеводы</p>
+                <div class="two">
+                    <input class="cal" type="number" step="0.1" name="carbohydrates" placeholder="____" required>
+                    <p>грамм</p>
+                </div>
+            </div>
+        </div>
+        <button class="send" type="submit">Отправить рецепт</button>
+    </form>
+    <script>
+        function addIngredient() {
+            const container = document.getElementById('ingredients-container');
+            const newGroup = document.createElement('div');
+            newGroup.className = 'ingredient-group';
+            newGroup.innerHTML = `
+        <input class="name_recipe" type="text" name="ingredient_name[]" placeholder="Ингредиент" required>
+        <input class="quantity_recipe" type="number" step="0.1" name="ingredient_amount[]" placeholder="Количество" required>
+        <select name="ingredient_unit[]" placeholder="Единица измерения" required>
+            <option value="г">г</option>
+            <option value="мл">мл</option>
+            <option value="шт">шт</option>
+        </select>
+    `;
+            container.appendChild(newGroup);
+        }
+
+        function addStep() {
+            const container = document.getElementById('steps-container');
+            const newGroup = document.createElement('div');
+            newGroup.className = 'step-group';
+            newGroup.innerHTML = `
+    <div class="steps">
+        <input class="photo" type="file" name="step_image[]" accept="image/*" required>
+        <input class="num-step" type="number" min="1" minlength="1" name="step_number[]" placeholder="Номер шага" required>
+        <input class="description-step" type="text" name="step_description[]" placeholder="Описание шага" required>
+    </div>
+    `;
+            container.appendChild(newGroup);
+        }
+    </script>

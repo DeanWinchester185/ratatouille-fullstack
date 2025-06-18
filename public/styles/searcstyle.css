@@ -1,0 +1,255 @@
+
+:root {
+  --white-color: white;
+  --main-color: #f80000;
+  --second-color: #e4e4e4;
+  --input-width: 430px;
+  --input-height: 40px;
+  --input-radius: 30px;
+  --input-border: 1px solid black;
+  --top-margin: 30px;
+  --line-color: 1px solid #515151;
+  --font-size: 20px;
+  --width-button: 350px;
+  --height-button: 45px;
+  --button-radius: 10px;
+  --button-hover: #940000;
+  --dark-color: black;
+  --dark-gray: #828282;
+  --head-text: 32px;
+  --head-font-width: 500;
+  --simple-text: 16px;
+  --recipe-width: 311px;
+  --recipe-height: 300px;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+  background-color: #FFFFE4;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+header {
+  margin-top: var(--top-margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.find {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 250px;
+  max-width: var(--input-width);
+}
+
+.search {
+  padding: 0 15px;
+  background-color: var(--white-color);
+  width: 100%;
+  height: var(--input-height);
+  border: var(--input-border);
+  border-right: none;
+  border-radius: var(--input-radius) 0 0 var(--input-radius);
+  font-size: var(--simple-text);
+}
+
+.search-btn {
+  background-color: var(--white-color);
+  height: var(--input-height);
+  width: 45px;
+  border: var(--input-border);
+  border-left: none;
+  border-radius: 0 var(--input-radius) var(--input-radius) 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.heart, .profile {
+  background-color: var(--white-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.heart:hover, .profile:hover {
+  transform: scale(1.1);
+}
+
+.line {
+  margin: var(--top-margin) auto 0;
+  border: var(--line-color);
+  width: 95%;
+  max-width: 1200px;
+}
+
+.recipes {
+  margin: var(--top-margin) auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--recipe-width), 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 0 20px;
+  max-width: 1200px;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white-color);
+  font-size: var(--simple-text);
+  border-radius: var(--button-radius);
+  width: 100%;
+  height: var(--recipe-height);
+  box-shadow: 0px 7px 10px 2px rgba(145, 137, 137, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 15px 3px rgba(145, 137, 137, 0.3);
+}
+
+.border {
+  border-radius: var(--button-radius) var(--button-radius) 0 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/0.8;
+  object-fit: cover;
+}
+
+.name {
+  margin: 10px 0;
+  text-align: center;
+  font-size: var(--font-size);
+  font-weight: var(--head-font-width);
+  padding: 0 15px;
+}
+
+
+.logbutton {
+  width: 110px;
+  height: 55px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-color);
+  cursor: pointer;
+  margin: 20px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--main-color),
+    var(--button-hover),
+    #b60006,
+    var(--main-color)
+  );
+  box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+.logbutton:hover {
+  background-position: 100% 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  :root {
+    --input-width: 380px;
+    --recipe-width: 280px;
+    --head-text: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --input-width: 320px;
+    --top-margin: 25px;
+    --font-size: 18px;
+    --head-text: 26px;
+    --recipe-width: 250px;
+    --recipe-height: 280px;
+  }
+
+  .recipes {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .find {
+    order: 1;
+    width: 100%;
+  }
+
+  .buttons {
+    order: 2;
+  }
+
+  :root {
+    --input-width: 100%;
+    --head-text: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --input-height: 36px;
+    --top-margin: 20px;
+    --font-size: 16px;
+  }
+
+  .recipes {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --simple-text: 14px;
+    --head-text: 22px;
+  }
+
+  .btns {
+    gap: 10px;
+  }
+}

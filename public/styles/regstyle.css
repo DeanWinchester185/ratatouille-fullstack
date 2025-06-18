@@ -1,0 +1,208 @@
+/* html{
+    font-family: jost;
+    background-color: #FFFFE4;
+}
+body{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.dates{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.userdata{
+    padding-left: 10px;
+    width: var(--input-width);
+    height: var(--input-height);
+    font-size: var(--simple-text);
+    border-radius: var(--input-radius);
+    border: solid 1px black;
+}
+.regbutton{
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);  
+    box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.regbutton:hover{
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.link{
+    font-size: var(--simple-text);
+    color: #0077FF;
+    text-decoration: underline;
+}
+.link:hover{
+    color: #005ac0;
+} */
+ :root {
+    --input-width: 460px;
+    --input-height: 40px;
+    --input-radius: 30px;
+    --simple-text: 16px;
+    --body-margin-top: 200px;
+}
+
+html {
+    font-family: 'Jost', sans-serif;
+    background-color: #FFFFE4;
+}
+
+body {
+    margin-top: var(--body-margin-top);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    min-height: calc(100vh - 200px);
+    box-sizing: border-box;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.userdata {
+    padding: 0 10px;
+    width: 100%;
+    max-width: var(--input-width);
+    height: var(--input-height);
+    font-size: var(--simple-text);
+    border-radius: var(--input-radius);
+    border: solid 1px black;
+    box-sizing: border-box;
+}
+
+.regbutton {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);  
+    box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+}
+
+.regbutton:hover {
+    background-position: 100% 0;
+}
+
+.link {
+    font-size: var(--simple-text);
+    color: #0077FF;
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: #005ac0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    body {
+        margin-top: 150px;
+        gap: 25px;
+    }
+    
+    :root {
+        --input-width: 280px;
+        --input-height: 38px;
+        --simple-text: 15px;
+    }
+    
+    .regbutton {
+        width: 180px;
+        height: 50px;
+        font-size: 15px;
+        margin: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 120px 15px 0;
+        gap: 20px;
+    }
+    
+    :root {
+        --input-width: 100%;
+        --simple-text: 14px;
+    }
+    
+    .regbutton {
+        width: 160px;
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .block, .dates {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        margin: 100px 10px 0;
+        gap: 15px;
+    }
+    
+    :root {
+        --input-height: 36px;
+        --simple-text: 13px;
+    }
+    
+    .regbutton {
+        width: 140px;
+        height: 40px;
+        font-size: 13px;
+        margin: 10px;
+    }
+}

@@ -1,0 +1,37 @@
+services:
+  ratatouille_database:
+    image: "postgres:17.2-alpine"
+    restart: always
+    container_name: ratatouille_database
+    hostname: ratatouille_database
+    environment:
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+    ports:
+      - "${DB_PORT}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - database:/var/lib/postgresql/data
+
+  ratatouille_express:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ratatouille_express
+    restart: always
+    environment:
+      - NODE_ENV=prod
+      - DB_HOST=ratatouille_database
+    ports:
+      - "80:80"
+    depends_on:
+      ratatouille_database:
+        condition: service_healthy
+
+volumes:
+  database:

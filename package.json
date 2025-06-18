@@ -1,0 +1,25 @@
+{
+  "name": "ratatouille-fullstack",
+  "private": true,
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "express-session": "^1.18.1",
+    "hbs": "^4.2.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "potrace": "^2.1.8",
+    "sequelize": "^6.37.5",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}

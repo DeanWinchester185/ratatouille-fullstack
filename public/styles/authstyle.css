@@ -1,0 +1,122 @@
+
+:root {
+    --input-width: 430px;
+    --input-height: 40px;
+    --input-radius: 30px;
+    --simple-text: 16px;
+    --body-margin-top: 200px;
+    --gap-between-elements: 30px;
+    --button-width: 200px;
+    --button-height: 55px;
+}
+
+html {
+    font-family: 'Jost', sans-serif;
+    background-color: #FFFFE4;
+}
+
+body {
+    margin-top: var(--body-margin-top);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-between-elements);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-between-elements);
+    width: 100%;
+    max-width: 500px;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-between-elements);
+    width: 100%;
+}
+
+.userdata {
+    padding-left: 10px;
+    width: 100%;
+    max-width: var(--input-width);
+    height: var(--input-height);
+    font-size: var(--simple-text);
+    border-radius: var(--input-radius);
+    border: solid 1px black;
+    box-sizing: border-box;
+}
+
+.authbutton {
+    width: var(--button-width);
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: var(--button-height);
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);  
+    box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+    border-radius: 50px;
+    transition: all .4s ease-in-out;
+}
+
+.authbutton:hover {
+    background-position: 100% 0;
+}
+
+.link {
+    font-size: var(--simple-text);
+    color: #0077FF;
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: #005ac0;
+}
+@media (max-width: 768px) {
+    :root {
+        --input-width: 250px;
+        --input-height: 38px;
+        --simple-text: 15px;
+        --body-margin-top: 150px;
+        --gap-between-elements: 25px;
+        --button-width: 180px;
+        --button-height: 50px;
+    }
+}
+@media (max-width: 480px) {
+    :root {
+        --input-width: 100%;
+        --input-height: 36px;
+        --simple-text: 14px;
+        --body-margin-top: 100px;
+        --gap-between-elements: 20px;
+        --button-width: 160px;
+        --button-height: 45px;
+    }
+    
+    body {
+        padding: 0 15px;
+    }
+    
+    .authbutton {
+        margin: 15px;
+    }
+}
+@media (max-width: 320px) {
+    :root {
+        --simple-text: 13px;
+        --body-margin-top: 80px;
+        --gap-between-elements: 15px;
+        --button-width: 140px;
+        --button-height: 40px;
+    }
+}

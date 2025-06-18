@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/favorstyle.css">
+    <title>Ratatouille</title>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/images/logo.png" alt="logo"></a>
+        <form action="/recipes/search" method="get">
+            <div class="find">
+                <input class="search" type="text" name="query" placeholder="Поиск">
+                <button class="search-btn" type="submit"><img src="/images/lupa.png" alt="search"></button>
+            </div>
+        </form>
+        <div class="buttons">
+            <div class="btns">
+                <a href="/favorite"><img src="/images/heart.png"></a>
+                {{#if user}}
+                <a href="/profile"><img src="/images/user.svg"></a>
+            </div>
+            {{else}}
+            <div>
+                <a href="/login"><button class="logbutton">Войти</button></a>
+            </div>
+            {{/if}}
+        </div>
+    </header>
+    <hr class="line">
+    <h1>Избранное</h1>
+    <div class="block1">
+        
+            {{#each favorites}}
+            <div class="recipes">
+                <div class="recipe">
+                    <a href="/recipes/{{this.Recipe.id}}"><img class="photo" src="/images/recipes/{{this.Recipe.id}}.png"></a>
+                    <div class="name">
+                        <p>{{this.Recipe.name}}</p>
+                        <form action="/favorite/{{this.Recipe.id}}" method="post">
+                        <button class="btn" type="submit"><img src="images/heart-fill.svg"></button>
+                    </div>
+
+                </form>
+                </div>
+            </div>
+            {{/each}}
+    </div>
+</body>
+</html>

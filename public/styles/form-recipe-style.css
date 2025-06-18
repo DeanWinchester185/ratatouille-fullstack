@@ -1,0 +1,613 @@
+/* html{
+    font-family: jost;
+    background-color: #FFFFE4;
+}
+:root {
+  --white-color: white;
+  --main-color: #f80000;
+  --second-color: #e4e4e4;
+  --input-width: 430px;
+  --input-height: 40px;
+  --input-radius: 30px;
+  --input-border: 1px solid black;
+  --top-margin: 30px;
+  --line-color: 1px solid #515151;
+  --font-size: 20px;
+  --width-button: 350px;
+  --height-button: 45px;
+  --button-radius: 10px;
+  --button-hover: #940000;
+  --dark-color: black;
+  --dark-gray: #828282;
+  --head-text: 32px;
+  --head-font-width: 500;
+  --simple-text: 20px;
+  --recipe-width: 311px;
+  --recipe-height: 300px;
+}
+header{
+    margin-top: var(--top-margin);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.house{
+    margin-left: 30px;
+}
+.logo{
+    margin-left: 750px;
+}
+.line{
+    margin-top: var(--top-margin);
+    border: var(--line-color);
+}
+.block{
+    margin-top: var(--top-margin);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.category{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 20px;
+}
+.name-category{
+    width: 100px;
+    height: 50px;
+    border: solid 1px black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.name{
+    text-align: center;
+    width: var(--input-width);
+    height: var(--input-height);
+    font-size: var(--head-text);
+    border-radius: var(--button-radius);
+    border: var(--input-border);
+}
+.photo{
+    width: var(--input-width);
+    height: 50%;
+    border-radius: var(--button-radius);
+    border: var(--input-border);
+}
+.description{
+    width: var(--input-width);
+    height: 250px;
+    border-radius: var(--button-radius);
+    border: var(--input-border);
+}
+.headler{
+    margin-top: 50px;
+    font-size: var(--head-text);
+    font-weight: var(--head-font-width);
+    text-align: center;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.name_recipe{
+    width: 400px;
+    height: 45px;
+    border:var(--input-border);
+    border-radius: var(--button-radius);
+}
+.quantity_recipe{
+    height: 45px;
+    border:var(--input-border);
+    border-radius: var(--button-radius);
+}
+select{
+    border:var(--input-border);
+    padding: 10px 20px;
+    border-radius: var(--button-radius);
+} 
+select:focus{
+    outline:none;
+}
+.add-ingredients{
+    display: flex;
+}
+.add{
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    border: var(--input-border);
+    border-radius: var(--button-radius);
+    background-color: var(--white-color);
+}
+.add:hover{
+    background-color: var(--second-color);
+}
+.steps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.num-step{
+    border: var(--input-border);
+    height: 45px;
+    width: var(--input-width);
+    border-radius: var(--button-radius);
+}
+.description-step{
+    width: var(--input-width);
+    height: 170px;
+    border-radius: var(--button-radius);
+    border: var(--input-border);
+}
+.one{
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 188px;
+    height: 201px;
+    background-color: #F80000;
+    border-radius: 20px;
+    padding-top: 15px;
+}
+.two{
+    display: flex;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    width: 139px;
+    height: 96px;
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+}
+.caloriqnost{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 30px
+}
+.cal{
+    width: 139px;
+    text-align: center;
+    border-radius: 20px;
+}
+.send{
+    margin-top: 100px;
+    margin-bottom: 200px;
+    margin-left: 800px;
+   width: 250px;
+   font-size: 16px;
+   font-weight: 600;
+   color: #fff;
+   cursor: pointer;
+   height: 55px;
+   text-align:center;
+   border: none;
+   background-size: 300% 100%;
+   background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);  
+   box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+   border-radius: 50px;
+   moz-transition: all .4s ease-in-out;
+   -o-transition: all .4s ease-in-out;
+   -webkit-transition: all .4s ease-in-out;
+   transition: all .4s ease-in-out;
+}
+.send:hover{
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.buttons{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.no{
+    width: var(--width-button);
+    height: var(--height-button);
+    margin-bottom: 200px;
+    background-color: var(--second-color);
+    color: var(--dark-color);
+    border-radius: var(--button-radius);
+}
+.no:hover{
+    background-color: var(--dark-gray);
+}
+.yes{
+    width: var(--width-button);
+    height: var(--height-button);
+    background-color: var(--main-color);
+    color: var(--white-color);
+    border-radius: var(--button-radius);
+}
+.yes:hover{
+    background-color: var(--button-hover);
+}
+.quantity{
+    display: flex;
+}
+.ingredients{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    border-bottom: 3px dashed;
+}
+.menu{
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+} */
+:root {
+  --white-color: white;
+  --main-color: #f80000;
+  --second-color: #e4e4e4;
+  --input-width: 430px;
+  --input-height: 40px;
+  --input-radius: 30px;
+  --input-border: 1px solid black;
+  --top-margin: 30px;
+  --line-color: 1px solid #515151;
+  --font-size: 20px;
+  --width-button: 350px;
+  --height-button: 45px;
+  --button-radius: 10px;
+  --button-hover: #940000;
+  --dark-color: black;
+  --dark-gray: #828282;
+  --head-text: 32px;
+  --head-font-width: 500;
+  --simple-text: 20px;
+  --recipe-width: 311px;
+  --recipe-height: 300px;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+  background-color: #FFFFE4;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+header {
+  margin-top: var(--top-margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  flex-wrap: wrap;
+  position: relative;
+}
+.house {
+  order: 1;
+  margin-left: 0;
+}
+.logo {
+  margin-right: 750px;
+    transform: translateX(-50%);
+}
+.line {
+  margin: var(--top-margin) auto 0;
+border: var(--line-color);
+width: 100%;
+}
+.block {
+  margin-top: var(--top-margin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 0 20px;
+}
+.category {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size);
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.name-category {
+  width: 100px;
+  height: 50px;
+  border: var(--input-border);
+  border-radius: var(--button-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.name-category:hover {
+  background-color: var(--second-color);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: var(--input-width);
+}
+.name, .photo, .description,
+.num-step, .description-step {
+  width: 100%;
+  max-width: var(--input-width);
+  border: var(--input-border);
+  border-radius: var(--button-radius);
+  padding: 10px 15px;
+  font-size: var(--simple-text);
+}
+.name_recipe{
+  width: 150px;
+  max-width: var(--input-width);
+  border: var(--input-border);
+  border-radius: var(--button-radius);
+  padding: 10px 15px;
+  font-size: var(--simple-text);
+}
+.quantity_recipe{
+  width: 150px;
+  max-width: var(--input-width);
+  border: var(--input-border);
+  border-radius: var(--button-radius);
+  padding: 10px 15px;
+  font-size: var(--simple-text);
+}
+.photo {
+  height: auto;
+  object-fit: cover;
+}
+.description, .description-step {
+  resize: vertical;
+}
+.headler {
+  margin-top: 50px;
+  font-size: var(--head-text);
+  font-weight: var(--head-font-width);
+  text-align: center;
+  padding: 0 20px;
+}
+.add-ingredients {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: var(--input-width);
+  flex-wrap: wrap;
+}
+select {
+  border: var(--input-border);
+  padding: 12px 15px;
+  border-radius: var(--button-radius);
+  flex-grow: 1;
+  min-width: 80px;
+}
+select:focus {
+  outline: none;
+}
+.add {
+  font-size: 24px;
+  width: 45px;
+  height: 45px;
+  border: var(--input-border);
+  border-radius: var(--button-radius);
+  background-color: var(--white-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.add:hover {
+  background-color: var(--second-color);
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.caloriqnost {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 20px;
+}
+.one, .two {
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.one {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  width: 188px;
+  height: 201px;
+  font-size: var(--head-text);
+}
+.two {
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  width: 139px;
+  height: 96px;
+  font-size: 24px;
+}
+.cal {
+  width: 100px;
+  text-align: center;
+  border-radius: 20px;
+}
+.send, .no, .yes {
+  width: 100%;
+  padding: 10px;
+  max-width: 250px;
+  height: var(--height-button);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+.send {
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);
+  box-shadow: 0 5px 15px rgba(85, 85, 85, 0.4);
+  color: var(--white-color);
+  margin: 100px auto 200px;
+  display: block;
+}
+.send:hover {
+  background-position: 100% 0;
+}
+.buttons {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 20px;
+  margin-bottom: 200px;
+}
+.no {
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);
+  box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+  color: var(--white-color);
+  margin: 100px auto 200px;
+  display: block;
+}
+.no:hover {
+  background-color: var(--dark-gray);
+}
+.yes {
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #949494, #6e6e6e, #797979, #818181);
+  box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+  color: var(--white-color);
+  margin: 100px auto 200px;
+  display: block;
+}
+.yes:hover {
+  background-color: var(--button-hover);
+}
+.menu {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 90%;
+}
+.ingredients {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  border-bottom: 3px dashed;
+  padding: 10px 0;
+}
+@media (max-width: 1024px) {
+  :root {
+    --input-width: 380px;
+    --head-text: 28px;
+  }
+  .logo {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --input-width: 320px;
+    --top-margin: 25px;
+    --font-size: 18px;
+    --head-text: 26px;
+    --simple-text: 18px;
+  }
+  .category {
+    gap: 15px;
+  }
+  .one {
+    width: 160px;
+    height: 180px;
+    font-size: 26px;
+  }
+  .two {
+    width: 120px;
+    height: 80px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .logo {
+    order: -1;
+    margin-bottom: 15px;
+  }
+  :root {
+    --input-width: 100%;
+    --head-text: 24px;
+  }
+  .caloriqnost {
+    gap: 20px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --input-height: 36px;
+    --top-margin: 20px;
+    --font-size: 16px;
+    --simple-text: 16px;
+  }
+  .name-category {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+  }
+  .buttons {
+    align-items: center;
+  }
+  .ingredients {
+    font-size: 20px;
+  }
+}
+@media (max-width: 360px) {
+  :root {
+    --simple-text: 14px;
+    --head-text: 22px;
+  }
+  .one {
+    width: 140px;
+    height: 160px;
+  }
+  .two {
+    width: 100px;
+    height: 70px;
+    font-size: 18px;
+  }
+}

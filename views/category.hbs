@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/images/logo.png" alt="logo"></a>
+        <form action="/recipes/search" method="get">
+            <div class="find">
+                <input class="search" type="text" name="query" placeholder="Поиск">
+                <button class="search-btn" type="submit"><img src="/images/lupa.png" alt="search"></button>
+            </div>
+        </form>
+        <div class="buttons">
+            <div class="btns">
+                <a href="/favorite"><img src="/images/heart.png"></a>
+                {{#if user}}
+                <a href="/profile"><img src="/images/user.svg"></a>
+            </div>
+            {{else}}
+            <div>
+                <a href="/login"><button class="logbutton">Войти</button></a>
+            </div>
+            {{/if}}
+        </div>
+    </header>
+    <hr class="line">
+    <h1>{{title}}</h1>
+    <div class="block2">
+        <div class="recipes">
+            {{#each recipes}}
+            <div class="recipe">
+                <a href="/recipes/{{this.Recipe.id}}">
+                    <img class="border" src="/images/recipes/{{this.Recipe.id}}.png" style="width: 358px; height: 239px;">
+                    <div class="recipe_name">
+                        <h4 class="name">{{this.Recipe.name}}</h4>
+                        <div class="star">
+                            <p>{{this.Recipe.rating}}</p>
+                            <img src="/images/small-star.png" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <hr class="line">
+    <footer>
+        <div class="up">
+            <img src="/images/logo.png" alt="logo">
+            <img src="/images/Citata.png" alt="citata">
+            <div class="feedback">
+                <p class="mail">Поделиться с нами рецептом:
+                    ratatouille@gmail.com</p>
+                <div class="messengers">
+                    <img src="/images/tg.png" alt="tg">
+                    <img src="/images/ws.png" alt="whatsapp">
+                    <img src="/images/vk.png" alt="vk">
+                </div>
+            </div>
+        </div>
+        <p class="copyright">©2024, Ratatouille.ru Все права защищены.</p>
+    </footer>
+</body>
+</html>

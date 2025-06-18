@@ -1,0 +1,110 @@
+:root {
+  --top-margin: 30px;
+  --line-color: 1px solid #515151;
+  --table-border: 1px solid #595959;
+  --cell-padding: 12px;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+  background-color: #FFFFE4;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+header {
+  margin-top: var(--top-margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.house {
+  margin-left: 0;
+}
+
+.logo {
+  margin-right: 750px;
+  transform: translateX(-50%);
+}
+
+h1 {
+  margin: 10px;
+}
+.line {
+  margin: var(--top-margin) auto 0;
+  border: var(--line-color);
+  width: 100%;
+}
+table.iksweb {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+table.iksweb td,
+table.iksweb th {
+  padding: var(--cell-padding);
+  border: var(--table-border);
+  text-align: center;
+  min-width: 30px;
+}
+table.iksweb th {
+  background: var(--header-bg);
+  color: var(--header-text);
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+}
+@media (max-width: 1200px) {
+  .logo {
+    position: static;
+    transform: none;
+    margin-left: auto;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --cell-padding: 8px;
+    --top-margin: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .house {
+    align-self: flex-start;
+  }
+
+  .logo {
+    order: -1;
+    margin: 0;
+  }
+
+  table.iksweb {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --cell-padding: 6px;
+  }
+  table.iksweb {
+    font-size: 12px;
+  }
+  table.iksweb td,
+  table.iksweb th {
+    min-width: 20px;
+  }
+}

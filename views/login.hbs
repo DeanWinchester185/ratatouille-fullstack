@@ -1,0 +1,29 @@
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/authstyle.css" />
+    <title>Авторизация</title>
+  </head>
+  <body>
+    <div class="block">
+      <a href="/"><img src="/images/big_logo.png" alt="logo" /></a>
+      <form class="form" action="/login" method="post">
+        <div class="dates">
+          <input class="userdata" id="email" type="email" name="email" placeholder="Почта" required />
+          <input class="userdata" id="password" type="password" name="password" placeholder="Пароль" required />
+          <button class="authbutton" id="btn" type="submit">Войти</button>
+        </div>
+      </form>
+      <a class="link" href="/register">Еще нет аккаунта?</a>
+    </div>
+  </body>
+</html>

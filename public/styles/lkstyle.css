@@ -1,0 +1,233 @@
+:root {
+  --white-color: white;
+  --main-color: #f80000;
+  --second-color: #e4e4e4;
+  --input-width: 430px;
+  --input-height: 40px;
+  --input-radius: 30px;
+  --input-border: 1px solid black;
+  --top-margin: 30px;
+  --line-color: 1px solid #515151;
+  --font-size: 20px;
+  --width-button: 350px;
+  --height-button: 45px;
+  --button-radius: 10px;
+  --button-hover: #940000;
+  --dark-color: black;
+  --dark-gray: #828282;
+  --head-text: 32px;
+  --head-font-width: 500;
+  --simple-text: 16px;
+  --recipe-width: 311px;
+  --recipe-height: 300px;
+}
+html {
+  font-family: "Jost", sans-serif;
+  background-color: #FFFFE4;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+header {
+  margin-top: var(--top-margin);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px;
+}
+.find {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 310px;
+  max-width: var(--input-width);
+}
+.search {
+  padding: 0 15px;
+  background-color: var(--white-color);
+  width: 100%;
+  height: var(--input-height);
+  border: var(--input-border);
+  border-right: none;
+  border-radius: var(--input-radius) 0 0 var(--input-radius);
+  font-size: var(--simple-text);
+}
+.search-btn {
+  background-color: var(--white-color);
+  height: var(--input-height);
+  width: 45px;
+  border: var(--input-border);
+  border-left: none;
+  border-radius: 0 var(--input-radius) var(--input-radius) 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.heart,
+.profile {
+  background-color: var(--white-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.heart:hover,
+.profile:hover {
+  transform: scale(1.1);
+}
+.line {
+  margin: var(--top-margin) auto 0;
+  border: var(--line-color);
+  width: 100%;
+}
+.block1 {
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 0 20px;
+}
+.userdata {
+  width: 100%;
+  max-width: 450px;
+  height: var(--input-height);
+  font-size: var(--font-size);
+  border-radius: var(--input-radius);
+  border: var(--input-border);
+  padding: 0 15px;
+}
+.avatarka{
+    width: 189px;
+  height: 189px;
+}
+.avatar-container {
+  position: relative;
+  width: 189px;
+  height: 189px;
+  margin-bottom: 20px;
+}
+.avatar,
+.avatar-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.avatar:hover {
+  opacity: 0.8;
+}
+.avatar:hover::after {
+  content: "";
+  position: absolute;
+  width: 189px;
+  height: 189px;
+  background: rgba(0, 0, 0, 0.5) url("/images/change_image.png") no-repeat center;
+  border-radius: 50%;
+}
+.btn,
+.btn2 {
+  width: 100%;
+  max-width: 250px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-color);
+  cursor: pointer;
+  margin: 20px 0;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #ff2732, #ff0008, #b60006, #ff000d);
+  box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  padding: 10px;
+}
+.btn:hover,
+.btn2:hover {
+  background-position: 100% 0;
+}
+@media (max-width: 1024px) {
+  :root {
+    --input-width: 380px;
+    --head-text: 28px;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --input-width: 320px;
+    --top-margin: 25px;
+    --font-size: 18px;
+    --head-text: 26px;
+  }
+  .block1 {
+    margin-top: 120px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .find {
+    order: 1;
+    width: 100%;
+  }
+  .buttons {
+    order: 2;
+  }
+  :root {
+    --input-width: 100%;
+    --head-text: 24px;
+  }
+  .avatar-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --input-height: 36px;
+    --top-margin: 20px;
+    --font-size: 16px;
+  }
+  .block1 {
+    margin-top: 100px;
+  }
+  .userdata {
+    max-width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  :root {
+    --simple-text: 14px;
+    --head-text: 22px;
+  }
+  .btn,
+  .btn2 {
+    height: 50px;
+    font-size: 15px;
+  }
+}

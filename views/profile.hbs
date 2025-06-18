@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/lkstyle.css">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/images/logo.png" alt="logo"></a>
+        <form action="/recipes/search" method="get">
+            <div class="find">
+                <input class="search" type="text" name="query" placeholder="Поиск">
+                <button class="search-btn" type="submit"><img src="/images/lupa.png" alt="search"></button>
+            </div>
+        </form>
+        <div class="buttons">
+            <a href="/favorite"><img src="/images/heart.png"></a>
+            <a href="/profile"><img src="/images/user.svg"></a>
+        </div>      
+    </header>
+    <hr class="line"><hr> 
+    <div class="block1">
+        <form class="avatarka" id="avatar-form" action="/avatar" method="post" enctype="multipart/form-data">
+            {{#if avatar}}
+                <div class="avatar" style="background-image: url('/images/avatars/{{user.id}}.png');" id="avatar-btn"></div>
+                <input id="file" type="file" name="avatar" accept="image/jpeg, image/png" class="avatar-input" hidden />
+            {{else}}
+                <div class="avatar" style="background-image: url('/images/profile-icon.png');" id="avatar-btn"></div>
+                <input id="file" type="file" name="avatar" accept="image/jpeg, image/png" class="avatar-input" hidden />
+            {{/if}}
+        </form>
+        <input class="userdata" type="text" value="{{user.login}}">
+        <input class="userdata" type="text" value="{{user.email}}">
+        {{#if isAdmin}}
+            <a href="/admin"><button class="btn">Админ-панель</button></a>
+        {{else}}
+            <a href="/shared"><button class="btn">Поделиться своим рецептом</button></a>
+        {{/if}}
+    </div>
+    <div class="block1">
+        <form action="/logout" method="post">
+        <button class="btn2" type="submit">Выйти из аккаунта</button>
+    </form>
+    {{#if isAdmin}}
+    {{else}}
+        <form action="/delete" method="post">
+            <button class="btn2" type="submit">Удалить аккаунт</button>
+        </form>
+    {{/if}}
+    <script src="/js/sendImage.js"></script>
+</body>
+</html>
